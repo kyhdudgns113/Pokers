@@ -1,1 +1,1 @@
-26.05.07 :rocket: Project Init
+26.05.07 :package: 기본 패키지 설정

@@ -21,5 +21,26 @@
     "erasableSyntaxOnly": true,
     "noFallthroughCasesInSwitch": true
   },
+  "baseUrl": ".",
+  "paths": {
+    "@styles/*": ["src/base/styles/*"],
+
+    "@component": ["src/base/components"],
+    "@context": ["src/manager/contexts"],
+    "@fetch": ["src/base/fetch"],
+    "@httpType": ["src/base/types/httpTypes"],
+    "@guard": ["src/base/guards"],
+    "@localizeType": ["src/base/types/localizeTypes"],
+    "@nullValue": ["src/base/values/nullValues"],
+    "@prop": ["src/base/types/props"],
+    "@redux": ["src/manager/redux"],
+    "@secret": ["src/base/secret"],
+    "@shareType": ["src/base/types/shareTypes"],
+    "@shareValue": ["src/base/values/shareValues"],
+    "@socketType": ["src/base/types/socketTypes"],
+    "@type": ["src/base/types/types"],
+    "@util": ["src/base/utils"],
+    "@value": ["src/base/values/values"]
+  },
   "include": ["src"]
 }
