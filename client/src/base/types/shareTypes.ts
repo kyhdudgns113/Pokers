@@ -1,0 +1,167 @@
+export type AlarmType = {
+  /**
+   * socketTypes 의 NewAlarmType 과 동일해야 한다.
+   * 이거 바꾸면 그것도 바꿔준다.
+   */
+  alarmOId: string // Primary Key
+  alarmStatus: number
+  alarmType: number
+  content: string
+  createdAt: Date
+  fileOId: string | null
+  qnAOId: string | null
+  senderUserName: string
+  senderUserOId: string
+  userOId: string
+}
+export type ChatType = {
+  /**
+   * socketTypes 의 NewChatType 과 동일해야 한다.
+   * 이거 바꾸면 그것도 바꿔준다.
+   */
+  chatIdx: number
+  chatRoomOId: string
+  content: string
+  createdAt: Date
+  userOId: string // 보낸 유저
+  userName: string // 보낸 유저
+}
+export type ChatRoomType = {
+  chatRoomOId: string // Primary Key
+  chatRoomName: string // 보통은 targetUserName 이 들어간다.
+  targetUserId: string
+  targetUserMail: string
+  targetUserName: string
+  targetUserOId: string
+  unreadMessageCount: number
+  lastChatDate: Date
+}
+export type CommentType = {
+  commentOId: string // Primary Key
+  content: string // 댓글 내용
+  createdAt: Date
+  fileOId: string
+  userOId: string
+  userName: string
+}
+export type DirectoryType = {
+  // dirIdx: number // 클라이언트는 정렬된것만 주고 받는다.
+  dirName: string
+  dirOId: string // Primary Key
+  fileOIdsArr: string[]
+  // isOpen?: boolean // 클라이언트에서 폴더 열렸는지 확인용 은 클라에서 따로 관리하자
+  parentDirOId: string | null
+  subDirOIdsArr: string[]
+  updatedAtFile: Date | null // 자손파일중 가장 최근에 수정된 파일의 수정일
+}
+export type ExtraDirObjectType = {
+  /**
+   * 특정 디렉토리만 수정할때 쓰는 타입
+   * - BFS 방식으로 저장한다.
+   */
+  dirOIdsArr: string[]
+  directories: {[dirOId: string]: DirectoryType}
+}
+export type ExtraFileRowObjectType = {
+  /**
+   * 특정 FileRow만 수정할때 쓰는 타입
+   * - BFS 방식으로 저장한다.
+   */
+  fileOIdsArr: string[]
+  fileRows: {[fileOId: string]: FileRowType}
+}
+export type FileType = {
+  content: string
+  createdAt: Date
+  dirOId: string
+  fileIdx: number
+  fileOId: string // Primary Key
+  fileStatus: number
+  fileName: string
+  updatedAt: Date
+  userName: string
+  userOId: string
+}
+export type FileRowType = {
+  /**
+   * Lefter 같은곳에서 OId 랑 name 만 사용하기 위해 쓰는 타입
+   */
+  createdAt: Date
+  dirOId: string
+  fileName: string
+  fileOId: string // Primary Key
+  fileStatus: number
+  updatedAt: Date
+}
+export type LogType = {
+  date: Date
+  errObj: any // 서버에서 throw 받은 에러 오브젝트
+  gkd: any // 서버에 저장할 디테일한 에러 메시지
+  gkdErrCode: string // 에러코드
+  gkdErrMsg: string // 클라이언트에 띄울 에러메시지
+  gkdLog: string // 로그 메시지
+  gkdStatus: any // 로그가 발생했을때 저장된 상태
+  logOId: string // Primary Key
+  userId: string
+  userName: string
+  userOId: string
+  where: string
+}
+export type QnAType = {
+  content: string
+  createdAt: Date
+  isPrivate: boolean
+  userName: string
+  userOId: string
+  qnAOId: string // Primary Key
+  title: string
+  updatedAt: Date
+  viewCount: number
+}
+export type QnACommentType = {
+  content: string
+  createdAt: Date
+  qCommentOId: string // Primary Key
+  qnAOId: string // 참조하는 QnA 글의 OId
+  targetQCommentOId: string | null // 참조하는 QnA 댓글이 없으면 null
+  updatedAt: Date
+  userName: string
+  userOId: string
+}
+export type QnARowType = {
+  /**
+   * QnA 페이지 등에서 질문글 목록만 표시하기 위해 있는 타입
+   * - content 는 빠진다.
+   */
+  // content: string // 이것만 빠진다.
+  createdAt: Date
+  isPrivate: boolean
+  userName: string
+  userOId: string
+  qnAOId: string // Primary Key
+  title: string
+  updatedAt: Date
+  viewCount: number
+}
+export type ReplyType = {
+  commentOId: string
+  fileOId: string
+  createdAt: Date
+  content: string // 대댓글 내용
+  replyOId: string // Primary Key
+  targetUserOId: string
+  targetUserName: string
+  userOId: string
+  userName: string
+}
+export type UserType = {
+  createdAt: Date
+  picture?: string
+  signUpType?: 'common' | 'google'
+  updatedAt: Date
+  userAuth: number
+  userId: string
+  userMail: string
+  userName: string
+  userOId: string // Primary Key
+}

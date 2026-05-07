@@ -1,0 +1,1 @@
+export const [AUTH_ADMIN, AUTH_GOLD, AUTH_SILVER, AUTH_NORMAL] = [100, 2, 1, 0]

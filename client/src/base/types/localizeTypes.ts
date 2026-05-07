@@ -1,0 +1,146 @@
+export type AlarmTypeLocal = {
+  alarmOId: string
+  alarmStatus: number
+  alarmType: number
+  content: string
+  createdAtValue: number
+  fileOId: string | null
+  qnAOId: string | null
+  senderUserName: string
+  senderUserOId: string
+  userOId: string
+}
+
+export type ChatTypeLocal = {
+  chatIdx: number
+  chatRoomOId: string
+  content: string
+  createdAtValue: number
+  userOId: string // 보낸 유저
+  userName: string // 보낸 유저
+}
+export type ChatRoomTypeLocal = {
+  chatRoomOId: string
+  chatRoomName: string // 보통은 targetUserName 이 들어간다.
+  targetUserId: string
+  targetUserMail: string
+  targetUserName: string
+  targetUserOId: string
+  unreadMessageCount: number
+  lastChatDateValue: number
+}
+export type CommentTypeLocal = {
+  commentOId: string
+  content: string // 댓글 내용
+  createdAtValue: number
+  fileOId: string
+  userOId: string
+  userName: string
+}
+export type DirectoryTypeLocal = {
+  dirName: string
+  dirOId: string
+  fileOIdsArr: string[]
+  parentDirOId: string | null
+  subDirOIdsArr: string[]
+  updatedAtFileValue: number | null
+}
+export type FileTypeLocal = {
+  content: string
+  createdAtValue: number
+  dirOId: string
+  fileIdx: number
+  fileOId: string
+  fileStatus: number
+  fileName: string
+  updatedAtValue: number
+  userName: string
+  userOId: string
+}
+export type ExtraDirectoryObjectTypeLocal = {
+  dirOIdsArr: string[]
+  directories: {[dirOId: string]: DirectoryTypeLocal}
+}
+export type ExtraFileRowObjectTypeLocal = {
+  /**
+   * 특정 FileRow만 수정할때 쓰는 타입
+   * - BFS 방식으로 저장한다.
+   */
+  fileOIdsArr: string[]
+  fileRows: {[fileOId: string]: FileRowTypeLocal}
+}
+export type FileRowTypeLocal = {
+  createdAtValue: number
+  dirOId: string
+  fileName: string
+  fileOId: string
+  fileStatus: number
+  updatedAtValue: number
+}
+export type LogTypeLocal = {
+  dateValue: number
+  errObj: any // 서버에서 throw 받은 에러 오브젝트
+  gkd: any // 서버에 저장할 디테일한 에러 메시지
+  gkdErrCode: string // 에러코드
+  gkdErrMsg: string // 클라이언트에 띄울 에러메시지
+  gkdLog: string // 로그 메시지
+  gkdStatus: any // 로그가 발생했을때 저장된 상태
+  logOId: string
+  userId: string
+  userName: string
+  userOId: string
+  where: string
+}
+export type QnATypeLocal = {
+  content: string
+  createdAtValue: number
+  isPrivate: boolean
+  userName: string
+  userOId: string
+  qnAOId: string // Primary Key
+  title: string
+  updatedAtValue: number
+  viewCount: number
+}
+export type QnACommentTypeLocal = {
+  content: string
+  createdAtValue: number
+  qCommentOId: string // Primary Key
+  qnAOId: string // 참조하는 QnA 글의 OId
+  targetQCommentOId: string | null // 참조하는 QnA 댓글이 없으면 null
+  updatedAtValue: number
+  userName: string
+  userOId: string
+}
+export type QnARowTypeLocal = {
+  createdAtValue: number
+  isPrivate: boolean
+  userName: string
+  userOId: string
+  qnAOId: string // Primary Key
+  title: string
+  updatedAtValue: number
+  viewCount: number
+}
+export type ReplyTypeLocal = {
+  commentOId: string
+  fileOId: string
+  createdAtValue: number
+  content: string // 대댓글 내용
+  replyOId: string
+  targetUserOId: string
+  targetUserName: string
+  userOId: string
+  userName: string
+}
+export type UserTypeLocal = {
+  createdAtValue: number
+  picture?: string
+  signUpType?: 'common' | 'google'
+  updatedAtValue: number
+  userAuth: number
+  userId: string
+  userMail: string
+  userName: string
+  userOId: string
+}
