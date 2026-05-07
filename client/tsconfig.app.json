@@ -19,28 +19,30 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "erasableSyntaxOnly": true,
-    "noFallthroughCasesInSwitch": true
-  },
-  "baseUrl": ".",
-  "paths": {
-    "@styles/*": ["src/base/styles/*"],
-
-    "@component": ["src/base/components"],
-    "@context": ["src/manager/contexts"],
-    "@fetch": ["src/base/fetch"],
-    "@httpType": ["src/base/types/httpTypes"],
-    "@guard": ["src/base/guards"],
-    "@localizeType": ["src/base/types/localizeTypes"],
-    "@nullValue": ["src/base/values/nullValues"],
-    "@prop": ["src/base/types/props"],
-    "@redux": ["src/manager/redux"],
-    "@secret": ["src/base/secret"],
-    "@shareType": ["src/base/types/shareTypes"],
-    "@shareValue": ["src/base/values/shareValues"],
-    "@socketType": ["src/base/types/socketTypes"],
-    "@type": ["src/base/types/types"],
-    "@util": ["src/base/utils"],
-    "@value": ["src/base/values/values"]
+    "noFallthroughCasesInSwitch": true,
+    "baseUrl": ".",
+    "paths": {
+      "@component": ["src/base/components"],
+      "@context": ["src/manager/contexts"],
+      "@fetch": ["src/base/fetch"],
+      "@httpType": ["src/base/types/httpTypes"],
+      "@guard": ["src/base/guards"],
+      "@localizeType": ["src/base/types/localizeTypes"],
+      "@nullValue": ["src/base/values/nullValues"],
+      "@page": ["src/pages"],
+      "@page/*": ["src/pages/*"],
+      "@prop": ["src/base/types/props"],
+      "@redux": ["src/manager/redux"],
+      "@secret": ["src/base/secret"],
+      "@shareType": ["src/base/types/shareTypes"],
+      "@shareValue": ["src/base/values/shareValues"],
+      "@socketType": ["src/base/types/socketTypes"],
+      "@styles": ["src/base/styles"],
+      "@styles/*": ["src/base/styles/*"],
+      "@type": ["src/base/types/types"],
+      "@util": ["src/base/utils"],
+      "@value": ["src/base/values/values"]
+    }
   },
   "include": ["src"]
 }
